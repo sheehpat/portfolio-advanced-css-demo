@@ -1,8 +1,9 @@
+/*Creates responsive layout for items in the header */
 header{
     height: 125px;
     width: 100%;
     display: flex;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     background-color: #efefef;
     color: black;
     font-size: large;
@@ -11,6 +12,7 @@ header{
 
 header h1{
    flex: 1 1 50%;
+   display: inline;
 }
 
 header ul{
@@ -32,7 +34,11 @@ a {
     text-decoration: none;
 }
 
+/*Responsive design with hero image and subtitle*/
+
 .hero{
+    background-color: rgba(0,50,106,0.80);
+    background-size: 100%;
    height: 200px; 
    width: 100%;
    padding: 10px;
@@ -48,6 +54,7 @@ a {
     height: 200px;
 }
 
+/*Creates a responive layout and nested flexboxes for navigation section, bio, and work examples*/
 .information{
     width: 100%;
     height: 100%;
@@ -80,7 +87,7 @@ main {
     flex-wrap: wrap;
 }
 
-
+/*This main item is much larger than other work examples and is nested within the 'main' flexbox*/
 .showcaseApp {
     flex: 1 0 100%;
     height: 50%;
@@ -97,6 +104,7 @@ main {
     padding: 20px;
 }
 
+/*Centers work example subtitles on the cards*/
 .centered {
     position: absolute;
     top: 50%;
@@ -104,6 +112,7 @@ main {
     transform: translate(-50%, -50%);
 }
 
+/*Smaller work example cards with responsive layout*/
 .exampleApp {
     flex:1 0 50%;
     padding: 20px;
@@ -121,6 +130,7 @@ main {
 }
 
 .contactInfo{
+    margin-top: 20px;
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -135,3 +145,41 @@ main {
     margin: 20px;
 }
 
+/*media queries to adjust for issues with responsive design on smaller screens*/
+
+@media only screen and (max-width: 849px) {
+    header {
+        height: 175px;
+        align-items: center;
+    }
+    header h1 {
+      flex: 1 1 100%;
+    }
+    header ul { 
+        flex: 1 1 100%;
+    }
+  }
+
+  @media only screen and (max-width: 472px){
+    .contactInfo {
+        flex-wrap: wrap;
+    }
+    .contacInfo a{
+        flex: 1 1 50%;
+    }
+    .showcaseApp {
+        font-size: medium;
+    }
+    .exampleApp{
+        font-size: medium;
+    }
+  }
+
+  @media only screen and (max-width: 325px){
+    header {
+        height: 250px;
+    }
+    header ul{
+        flex-wrap: wrap;
+    }
+  }
